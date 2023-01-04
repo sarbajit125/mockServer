@@ -1,10 +1,12 @@
+
+require('dotenv').config()
 var express = require('express');
 var apiMocker = require('connect-api-mocker');
 
 var app = express();
 
-app.use('/mobiquitypay', apiMocker('server'));
+app.use(`/${process.env.HOST_NAME}`, apiMocker('server'));
 
-app.listen(8081, ()=> {
-    console.log("listening  on port 8081");
+app.listen(5000, ()=> {
+    console.log("listening  on port 5000");
 });

@@ -1,12 +1,12 @@
 FROM node:lts as dependencies
-WORKDIR /make-mocksUI
+WORKDIR /usr/app/mockServer
 COPY package.json ./
 RUN npm install
 COPY ./
 
 # Building app
 RUN npm run build
-EXPOSE 8080
+EXPOSE 5000
 
 # Running the app
-CMD ["npm", "run", "dev"]
+CMD ["nodemon"]
